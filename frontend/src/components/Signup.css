@@ -1,0 +1,72 @@
+.container{
+    /* border: 1px solid red; */
+    background-color: rgb(52, 50, 50);
+    border-radius: 0.5rem;
+    width: 35rem;
+    /* height: 15rem; */
+    height: fit-content;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .errors{
+    color: red;
+    font-size : 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-box{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  input{
+    margin: 5px 5px;
+    width: 30rem;
+    padding: 12px;
+    border : none;
+    border-radius: 0.25rem;
+    outline: none;
+  }
+  button{
+    margin: 10px 10px;
+  }
+  
+  .password-block{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+  .password-block span{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    right: 15px;
+    top : 15px;
+    color: rgb(164, 163, 163);
+    cursor: pointer;
+    background-color: rgb(72, 71, 71);
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+  }
+  
+  .password-block span:hover{
+    background-color: rgb(20, 19, 19);
+    color: white;
+    transform: scale(1.25);
+  }
+
+  .table{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
