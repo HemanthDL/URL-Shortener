@@ -4,7 +4,7 @@ const URL = require("../model/url")
 
 const router = express.Router()
 
-router.post("/all",async(req,res)=>{
+router.get("/all",async(req,res)=>{
     console.log(req.user._id);
     
     const allurl = await URL.find({createdBy : req.user._id})
@@ -16,7 +16,8 @@ router.post("/all",async(req,res)=>{
     }
     return res.json({
         status : true,
-        urls : allurl
+        urls : allurl,
+        name : req.user.username
     })
 })
 

@@ -43,6 +43,7 @@ const handleUserLogin = async(req,res)=>{
 
     const sessionid = uuidv4()
     setUser(sessionid,user)
+    res.cookie('uid',sessionid)
     console.log(sessionid);
 
     console.log('logged in succesfully');

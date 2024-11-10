@@ -14,19 +14,19 @@ const Home = () => {
     const [urlid, seturlid] = useState()
     const [Name, setName] = useState()
     const navigate = useNavigate()
-    const location = useLocation()
+    // const location = useLocation()
 
-    const uuid = location.state || {}
+    // const uuid = location.state || {}
 
     const handledata = async () => {
         try {
             
             const response = await fetch(`http://localhost:1927/url/all`,{
-                method: "POST",
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body : JSON.stringify({uuid}),
+                // body : JSON.stringify({uuid}),
                 credentials: 'include'
             })
             // console.log(response);
@@ -40,6 +40,7 @@ const Home = () => {
             }
             // console.log("res : ", res);
             setdata(res.urls)
+            setName(res.name)
             // console.log("data : ", data);
         } catch (error) {
             console.error("something is wrong")
@@ -61,7 +62,7 @@ const Home = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({data,uuid}),
+            body: JSON.stringify({data}),
             credentials: 'include',
         })
         const res = await response.json()

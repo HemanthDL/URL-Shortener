@@ -5,7 +5,6 @@ const { randomUUID } = new ShortUniqueId({ length: 8 });
 const generateShortUrl = async(req,res)=>{
     let shortid = randomUUID();
     let data = req.body.data
-    let id = req.body.id
     if(!data || !data.url){
         return res.status(400).json({message : "URL is required",status : false})
     }

@@ -42,8 +42,9 @@ function Login() {
     })
     const d = await res.json()
     if(d.success){
-      Cookies.set(d.uidName,d.cookie,{expires:1})
-      navigate("/home",{state : {uuid : d.uidName}})
+      // Cookies.set(d.uidName,d.cookie,{expires:1})
+      // navigate("/home",{state : {uuid : d.uidName}})
+      navigate("/home")
       return
     }
     else{

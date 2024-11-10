@@ -2,10 +2,8 @@ const {getUser} = require("../service/auth")
 
 const restrictToLoggedUser = async(req,res,next)=>{
     console.log("Cookies:", req.cookies);
-    let uid = req.body.uuid
-    console.log(uid.uuid);
     
-    const useruid = req.cookies[uid.uuid]
+    const useruid = req.cookies?.uid
 
     console.log("sessionid from cookie",useruid);
     
