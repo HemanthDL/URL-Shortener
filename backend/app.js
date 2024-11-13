@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const cookie_parser = require("cookie-parser")
 
-const {restrictToLoggedUser} = require("./middleware/auth")
+const {checkForAuthentication,restrictTo} = require("./middleware/auth")
 const {redirectUrl} = require('./controllers/handleURLRouetes')
 
 const conn = require('./connection')
@@ -23,7 +23,9 @@ app.use(cors({
 }));
 app.use(cookie_parser())
 
-app.use("/url",restrictToLoggedUser,URLrouter)
+app.use(checkForAuthentication)
+
+app.use("/url",restrictTo(['NORMAL','ADMIN']),URLrouter)
 app.get("/:id",redirectUrl)
 app.use("/user",Userroute)
 

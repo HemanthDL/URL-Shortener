@@ -2,6 +2,40 @@ const URL = require("../model/url")
 const ShortUniqueId = require("short-unique-id")
 const { randomUUID } = new ShortUniqueId({ length: 8 });
 
+const getAllUrls = async(req,res)=>{
+    console.log(req.user._id);
+
+    let allurl = null
+
+    // if(!req.user){
+    //     return res.json({
+    //         status : false,
+    //         message : "need to sign in"
+    //     })
+    // }
+
+    if(req.user.role == "ADMIN"){
+        allurl = await URL.find({})
+
+    }
+    else{
+        allurl = await URL.find({createdBy : req.user._id})
+    }
+    
+     
+    if(!allurl){
+        return res.json({
+            status : false,
+            message : "need to sign in"
+        })
+    }
+    return res.json({
+        status : true,
+        urls : allurl,
+        name : req.user.username
+    })
+}
+
 const generateShortUrl = async(req,res)=>{
     let shortid = randomUUID();
     let data = req.body.data
@@ -65,6 +99,7 @@ const getanalytics = async(req,res)=>{
 }
 
 module.exports = {
+    getAllUrls,
     generateShortUrl,
     redirectUrl,
     getanalytics
