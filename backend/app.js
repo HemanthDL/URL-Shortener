@@ -20,7 +20,7 @@ conn()
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(cors({
-    origin: 'http://localhost:6969', 
+    origin: 'url-shortener-frontend-five.vercel.app', 
     credentials: true 
 }));
 app.use(cookie_parser())
