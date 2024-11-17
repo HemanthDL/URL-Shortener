@@ -33,7 +33,7 @@ function Signup(props) {
 
   const onSubmit = async(data) => {
     // await delay(4);
-    const res = await fetch("http://localhost:1927/user/signup",{
+    const res = await fetch("https://url-shortener-backend-lac.vercel.app/user/signup",{
       method : "POST",
       body : JSON.stringify(data),
       headers : {

@@ -23,7 +23,7 @@ const Home = (props) => {
     const handledata = async () => {
         try {
             
-            const response = await fetch(`http://localhost:1927/url/all`,{
+            const response = await fetch(`https://url-shortener-backend-lac.vercel.app/url/all`,{
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const Home = (props) => {
     // }, [data]);
 
     const onSubmit = async (data) => {
-        const response = await fetch("http://localhost:1927/url", {
+        const response = await fetch("https://url-shortener-backend-lac.vercel.app/url", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const Home = (props) => {
             seturlid(msg)
             return
         }
-        let msg = `http://localhost:1927/${res.shorturl}`
+        let msg = `https://url-shortener-backend-lac.vercel.app/${res.shorturl}`
         seturlid(msg)
         return
     }
