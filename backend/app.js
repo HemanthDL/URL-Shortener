@@ -27,6 +27,11 @@ app.use(cookie_parser())
 
 app.use(checkForAuthentication)
 
+
+app.get("/",(req,res)=>{
+    res.send("hello world!!1")
+})
+
 app.use("/url",restrictTo(['NORMAL','ADMIN']),URLrouter)
 app.get("/:id",redirectUrl)
 app.use("/user",Userroute)
