@@ -48,6 +48,7 @@ const generateShortUrl = async(req,res)=>{
         redirectUrl : data.url,
         visited : [],
         createdBy : req.user._id,
+        createdUser : req.user.username
     })
     await new_url.save()
     .then(()=>{

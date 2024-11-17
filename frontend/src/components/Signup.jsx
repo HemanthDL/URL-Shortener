@@ -3,8 +3,11 @@ import { PiEyeBold, PiEyeClosedBold  } from "react-icons/pi";
 import { useForm } from 'react-hook-form';
 import './Signup.css'    
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar'
 
-function Signup() {
+
+
+function Signup(props) {
   const {
     register,
     handleSubmit,
@@ -51,7 +54,9 @@ function Signup() {
   }
 
   return (
-   <>
+    <>
+   <Navbar btnval1 = {props.btnval1} btnval2 = {props.btnval2} />
+   <div className='maindivforlogin'>
       <h2>Signup!</h2>
       <div className="container">
         {isSubmitting && <div>Loading...</div>}
@@ -88,6 +93,7 @@ function Signup() {
           <p>{errors.password && errors.password.message}</p> 
         </div>
       </div>
+   </div>
    </>
   )
 }

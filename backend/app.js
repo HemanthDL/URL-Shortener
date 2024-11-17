@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const express = require("express")
 const cors = require("cors")
 const cookie_parser = require("cookie-parser")
@@ -11,7 +13,7 @@ const URLrouter = require("./routes/url_route")
 const Userroute = require("./routes/user")
 
 const app = express()
-const PORT = 1927
+const PORT = process.env.PORT
 
 conn()
 

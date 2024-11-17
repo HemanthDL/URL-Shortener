@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { PiEyeBold, PiEyeClosedBold  } from "react-icons/pi";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie'
+import Navbar from './Navbar'
+// import Cookies from 'js-cookie'
 import './Signup.css'    
 
-function Login() {
+function Login(props) {
   const {
     register,
     handleSubmit,
@@ -44,7 +45,7 @@ function Login() {
     if(d.success){
       // Cookies.set(d.uidName,d.cookie,{expires:1})
       // navigate("/home",{state : {uuid : d.uidName}})
-      navigate("/home")
+      navigate("/userpage")
       return
     }
     else{
@@ -53,7 +54,9 @@ function Login() {
   }
 
   return (
-   <>
+    <>
+    <Navbar btnval1 = {props.btnval1} btnval2 = {props.btnval2} />
+   <div className="maindivforlogin">
       <h2>Login!</h2>
       <div className="container">
         {isSubmitting && <div>Loading...</div>}
@@ -78,6 +81,7 @@ function Login() {
           <p>Don't have an account?&nbsp;<strong><a href='/signup'>Sign up</a></strong></p>
         </div>
       </div>
+   </div>
    </>
   )
 }

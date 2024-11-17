@@ -2,6 +2,16 @@ const User = require("../model/user")
 const {v4:uuidv4} = require("uuid")
 const {setUser} = require("../service/auth")
 
+const {hashPassword,verifyPassword} = require("../service/bcrypt")
+
+
+const handleUserLogout = async(req,res)=>{
+    res.clearCookie("token")
+    res.status(200).json({
+        success : true
+    })
+}
+
 
 const handleUserSignup = async(req,res)=>{
 
@@ -10,6 +20,8 @@ const handleUserSignup = async(req,res)=>{
         email: req.body.email,
         password : req.body.password
     })
+
+    newUser.password = await hashPassword(newUser.password)
 
     await newUser.save()
     .then(()=>{
@@ -32,12 +44,21 @@ const handleUserSignup = async(req,res)=>{
 const handleUserLogin = async(req,res)=>{
 
     const {email,password} = req.body
-    const user = await User.findOne({email,password})
+    const user = await User.findOne({email})
     if(!user){
         console.log('invalid username or password');
         return res.status(404).json({
             success : false,
             message : "Invalid Email id or Password"
+        })
+    }
+
+    let value = await verifyPassword(password,user.password)
+
+    if(!value){
+        return res.status(404).json({
+            success : false,
+            message : "Invalid Password"
         })
     }
 
@@ -57,5 +78,6 @@ const handleUserLogin = async(req,res)=>{
 
 module.exports = {
     handleUserSignup,
-    handleUserLogin
+    handleUserLogin,
+    handleUserLogout
 }
