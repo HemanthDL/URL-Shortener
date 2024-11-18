@@ -33,7 +33,7 @@ function Signup(props) {
 
   const onSubmit = async(data) => {
     // await delay(4);
-    const res = await fetch(`${import.meta.env.BACKEND_BASEURL}/user/signup`,{
+    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/signup`,{
       method : "POST",
       body : JSON.stringify(data),
       headers : {
