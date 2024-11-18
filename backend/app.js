@@ -20,10 +20,11 @@ conn()
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 app.use(cors({
-    origin: 'https://url-shortener-frontend-five.vercel.app',
+    origin: process.env.FRONTEND_URL,
     methods: ["POST", "GET"], 
     credentials: true 
 }));
+
 app.use(cookie_parser())
 
 app.use(checkForAuthentication)

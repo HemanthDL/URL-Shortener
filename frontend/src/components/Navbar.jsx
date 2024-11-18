@@ -8,7 +8,7 @@ const Navbar = (props) => {
   const navigate = useNavigate()
 
   const handleLogoutButton = async ()=>{
-    const response = await fetch("https://url-shortener-backend-lac.vercel.app/user/logout",{
+    const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/logout`,{
       method : "GET",
       headers : {
         "Content-Type" : "application/json",

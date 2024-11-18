@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const key = "SampleKey@75896"
+const key = process.env.AUTH_KEY
 
 function setUser(user){
     // idToUserMap.set(id,user)
