@@ -33,7 +33,7 @@ function Login(props) {
 
   const onSubmit = async(data) => {
     // await delay(4);
-    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/login`,{
+    const res = await fetch(`${import.meta.env.BACKEND_BASEURL}/user/login`,{
       method : "POST",
       body : JSON.stringify(data),
       headers : {
