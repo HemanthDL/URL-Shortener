@@ -77,6 +77,8 @@ const redirectUrl = async(req,res)=>{
                 timestamp : Date.now().toString(),
             },
         },
+    }).catch(()=>{
+        res.end("error");
     })
     
     res.redirect(url.redirectUrl);
