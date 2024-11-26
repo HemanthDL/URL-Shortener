@@ -27,16 +27,16 @@ app.use(cors({
 
 app.use(cookie_parser())
 
-app.use(checkForAuthentication)
+// app.use(checkForAuthentication)
 
 
 app.get("/",(req,res)=>{
     res.send("hello world!!1")
 })
 
-app.use("/url",restrictTo(['NORMAL','ADMIN']),URLrouter)
+app.use("/url",checkForAuthentication,restrictTo(['NORMAL','ADMIN']),URLrouter)
 app.get("/:id",redirectUrl)
-app.use("/user",Userroute)
+app.use("/user",checkForAuthentication,Userroute)
 
 app.listen(PORT,()=>{
     console.log(`Server listening at PORT : ${PORT}`);
