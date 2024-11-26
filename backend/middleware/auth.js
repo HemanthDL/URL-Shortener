@@ -39,7 +39,13 @@ const checkForAuthentication = (req,res,next)=>{
 
 const restrictTo = (roles = [])=>{
     return function(req,res,next){
-        if(!req.user || !roles.includes(req.user.role)){
+        if(!req.user){
+            return res.status(404).json({
+                success : false,
+                message : "user not found"
+            })
+        }
+        if(!roles.includes(req.user.role)){
             return res.status(404).json({
                 success : false,
                 message : "UnAuthorized or UnAuthenticated"
