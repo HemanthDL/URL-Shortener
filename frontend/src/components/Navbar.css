@@ -8,6 +8,7 @@ nav{
     /* border: 1px solid white; */
     /* background-color: hsl(0, 0%, 0%); */
     padding: 3px;
+    z-index: 5;
 }
 
 

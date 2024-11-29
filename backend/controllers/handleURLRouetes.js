@@ -32,7 +32,8 @@ const getAllUrls = async(req,res)=>{
     return res.json({
         status : true,
         urls : allurl,
-        name : req.user.username
+        name : req.user.username,
+        role : req.user.role
     })
 }
 
