@@ -11,7 +11,7 @@ import {createBrowserRouter , RouterProvider} from "react-router-dom"
 function App() {
   const router = createBrowserRouter([
     {
-      path : "/home",
+      path : "/",
       element : <><Main btnval1 = "login" btnval2 = "signup" /></>
     },
     {

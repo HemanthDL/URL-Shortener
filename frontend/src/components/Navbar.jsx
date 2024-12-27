@@ -19,7 +19,7 @@ const Navbar = (props) => {
     const d = await response.json()
 
     if(d.success){
-      navigate("/home")
+      navigate("/")
       return
     }
     else{
