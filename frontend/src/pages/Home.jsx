@@ -78,7 +78,7 @@ const Home = (props) => {
             seturlid(msg)
             return
         }
-        let msg = `${API_URL}/${res.shorturl}`
+        let msg = `${import.meta.env.FRONTEND_URL}/${API_URL}/${res.shorturl}`
         seturlid(msg)
         return
     }
