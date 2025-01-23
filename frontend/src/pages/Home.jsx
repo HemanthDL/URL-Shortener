@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import { useNavigate,useLocation } from "react-router-dom"
 import { useForm } from 'react-hook-form';
 import "./Signup.css"
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar.jsx'
+import { API_URL } from "../API/apiendpoint.js";
 
 const Home = (props) => {
     const {
@@ -24,7 +25,7 @@ const Home = (props) => {
     const handledata = async () => {
         try {
             
-            const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/url/all`,{
+            const response = await fetch(`${API_URL}/url/all`,{
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,7 +62,7 @@ const Home = (props) => {
     // }, [data]);
 
     const onSubmit = async (data) => {
-        const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/url`, {
+        const response = await fetch(`${API_URL}/url`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +78,7 @@ const Home = (props) => {
             seturlid(msg)
             return
         }
-        let msg = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/${res.shorturl}`
+        let msg = `${API_URL}/${res.shorturl}`
         seturlid(msg)
         return
     }
@@ -133,7 +134,7 @@ const Home = (props) => {
                         {data.map((url, index) => (
                             <tr key={url._id}>
                                 <td>{index + 1}</td>
-                                <td>{import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/{url.shortID}</td>
+                                <td>{API_URL}/{url.shortID}</td>
                                 <td>{url.shortID}</td>
                                 <td>{url.redirectUrl}</td>
                                 <td>{url.visited.length}</td>

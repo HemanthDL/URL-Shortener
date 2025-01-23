@@ -1,8 +1,8 @@
 // import './App.css'
-import Home from './components/Home'
-import Signup from "./components/Signup"
-import Login from "./components/Login"
-import Main from "./components/Main"
+import Home from './pages/Home'
+import Signup from "./pages/Signup"
+import Login from "./pages/Login"
+import Main from "./pages/Main"
 // import './index.css'
 
 

@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { PiEyeBold, PiEyeClosedBold  } from "react-icons/pi";
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
 // import Cookies from 'js-cookie'
-import './Signup.css'    
+import './Signup.css'   
+import { API_URL } from '../API/apiendpoint'; 
 
 function Login(props) {
   const {
@@ -33,7 +34,7 @@ function Login(props) {
 
   const onSubmit = async(data) => {
     // await delay(4);
-    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/login`,{
+    const res = await fetch(`${API_URL}/user/login`,{
       method : "POST",
       body : JSON.stringify(data),
       headers : {

@@ -3,7 +3,8 @@ import { PiEyeBold, PiEyeClosedBold  } from "react-icons/pi";
 import { useForm } from 'react-hook-form';
 import './Signup.css'    
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
+import { API_URL } from '../API/apiendpoint';
 
 
 
@@ -33,7 +34,7 @@ function Signup(props) {
 
   const onSubmit = async(data) => {
     // await delay(4);
-    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/signup`,{
+    const res = await fetch(`${API_URL}/user/signup`,{
       method : "POST",
       body : JSON.stringify(data),
       headers : {
