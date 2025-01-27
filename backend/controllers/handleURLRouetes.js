@@ -51,12 +51,16 @@ const generateShortUrl = async(req,res)=>{
         createdBy : req.user._id,
         createdUser : req.user.username
     })
+    let generated_url = `${process.env.FRONTEND_URL}/api/${shortid}`
+    console.log("generated url : "+generated_url);
+    
     await new_url.save()
     .then(()=>{
         res.status(201).json({
             message : "Succesfully generated",
             shorturl : shortid,
-            status : true
+            status : true,
+            url : generated_url
         })
     })
     .catch(()=>{
